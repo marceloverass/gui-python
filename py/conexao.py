@@ -5,5 +5,5 @@ class DataBase:
             host="localhost",
             user="root",
             password="",
-            database="barbearia"
+            database="proteses"
         )
