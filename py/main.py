@@ -1,10 +1,12 @@
 from tkinter import *
 from tkinter import ttk
+from conexao import *
 
 window=Tk()
 window.title("Próteses")
 window.geometry("700x700")
 
+db=DataBase()
 numeroProtese=StringVar()
 supinf=StringVar()
 cliente=StringVar()
@@ -48,4 +50,31 @@ tvProteses.heading("#3", text="Superior/Inferior", anchor=CENTER)
 tvProteses.heading("#4", text="Cliente/Dentista", anchor=CENTER)
 tvProteses.heading("#5", text="Data de Entrega", anchor=CENTER)
 
+btnDeletar=Button(frame, text="Deletar", command=lambda:deletar())
+btnDeletar.grid(column=0, row=4, columnspan=4, pady=20)
+btnCriar=Button(frame, text="Criar", command=lambda:criar())
+btnCriar.grid(column=1, row=4)
+btnAtualizar=Button(frame, text="Atualizar", command=lambda:atualizar())
+btnAtualizar.grid(column=2, row=4)
+
+def esvaziar_tabela():
+    linhas= tvProteses.get_children()
+    for linha in linhas:
+        tvProteses.delete(linha)
+def preencher_tabela():
+    esvaziar_tabela()
+    sql="select * from proteses"
+    db.cursor.execute(sql)
+    linhas= db.cursor.fetchall()
+    for linha in linhas:
+        id= linha[0]
+        tvProteses.insert("", END, id, text= id, values= linha)
+def deletar():
+    pass
+def criar():
+    pass
+def atualizar():
+    pass
+
+preencher_tabela()
 window.mainloop()
