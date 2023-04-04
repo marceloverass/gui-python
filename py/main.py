@@ -19,7 +19,7 @@ lblNumeroProtese = Label(frame, text="Numº Protése").grid(column=0, row=0, pad
 txtNumeroProtese = Entry(frame, textvariable=numeroProtese)
 txtNumeroProtese.grid(column=1, row=0)
 
-lblsupinf = Label(frame, text="Superior ou Inferior").grid(column=0, row=1, padx=5, pady=5, width=10)
+lblsupinf = Label(frame, text="Superior ou Inferior").grid(column=0, row=1, padx=5, pady=5)
 txtsupinf = ttk.Combobox(frame, values=["S", "I"],textvariable=supinf)
 txtsupinf.grid(column=1, row=1)
 txtsupinf.current(0)
@@ -32,12 +32,12 @@ lblDataentrega = Label(frame, text="Data de Entrega").grid(column=2, row=1, padx
 txtDataentrega = Entry(frame, textvariable=dataentrega)
 txtDataentrega.grid(column=3, row=1)
 
-lblMensagem=Label(frame, text="MENSAGENS", fg="green")
+lblMensagem=Label(frame, text="", fg="green")
 lblMensagem.grid(column=0, row=2, columnspan=4, pady=15,)
 
 tvProteses=ttk.Treeview(frame)
 tvProteses.grid(column=0, row=3, columnspan=4, padx=40)
-tvProteses["columns"]=("1", "2", "3", "4", "5",)
+tvProteses["columns"]=("1", "2", "3", "4", "5")
 tvProteses.column("#0", width=0, stretch=NO)
 tvProteses.column("#1", width=100, anchor=CENTER)
 tvProteses.column("#2", width=100, anchor=CENTER)
@@ -58,6 +58,15 @@ btnCriar=Button(frame, text="Criar", command=lambda:criar())
 btnCriar.grid(column=1, row=4)
 btnAtualizar=Button(frame, text="Atualizar", command=lambda:atualizar())
 btnAtualizar.grid(column=2, row=4)
+
+def validar():
+    return len(numeroProtese.get()) and len(supinf.get()) and len(cliente.get()) and len(dataentrega.get())
+
+def limpar():
+    numeroProtese.set("")
+    supinf.set("")
+    cliente.set("")
+    dataentrega.set("")
 
 def esvaziar_tabela():
     linhas= tvProteses.get_children()
@@ -82,15 +91,22 @@ def deletar():
         tvProteses.delete(id)
         lblMensagem.config(text="A prótese foi deletada com sucesso", fg="green")
     else:
-        lblMensagem.config(text="Selecione uma prótese para eliminar")
+        lblMensagem.config(text="Selecione uma prótese para eliminar", fg="red")
 
 def criar():
-    val=(numeroProtese.get(), supinf.get(), cliente.get(), dataentrega.get())
-    sql="insert into proteses (numeroid, supinf, cliente, dataentrega) values(%s, %s, %s, %s)"
-    db.cursor.execute(sql, val)
-    db.connection.commit()
-    lblMensagem.config(text="A prótese foi criada com sucesso", fg="green")
-    preencher_tabela()
+    if atualizar==False:
+        if validar():
+            val=(numeroProtese.get(), supinf.get(), cliente.get(), dataentrega.get())
+            sql="insert into proteses (numeroid, supinf, cliente, dataentrega) values(%s, %s, %s, %s)"
+            db.cursor.execute(sql, val)
+            db.connection.commit()
+            lblMensagem.config(text="A prótese foi criada com sucesso", fg="green")
+            preencher_tabela()
+            limpar()
+        else:
+            lblMensagem.config(text="Preencha os campos corretamente", fg="red")
+    else: 
+        atualizar=False  
 
 def atualizar():
     pass
