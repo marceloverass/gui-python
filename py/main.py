@@ -19,9 +19,10 @@ lblNumeroProtese = Label(frame, text="Numº Protése").grid(column=0, row=0, pad
 txtNumeroProtese = Entry(frame, textvariable=numeroProtese)
 txtNumeroProtese.grid(column=1, row=0)
 
-lblsupinf = Label(frame, text="Superior ou Inferior").grid(column=0, row=1, padx=5, pady=5)
-txtsupinf = Entry(frame, textvariable=supinf)
+lblsupinf = Label(frame, text="Superior ou Inferior").grid(column=0, row=1, padx=5, pady=5, width=10)
+txtsupinf = ttk.Combobox(frame, values=["S", "I"],textvariable=supinf)
 txtsupinf.grid(column=1, row=1)
+txtsupinf.current(0)
 
 lblCliente = Label(frame, text="Cliente/Dentista").grid(column=2, row=0, padx=5, pady=5)
 txtCliente = Entry(frame, textvariable=cliente)
@@ -31,7 +32,8 @@ lblDataentrega = Label(frame, text="Data de Entrega").grid(column=2, row=1, padx
 txtDataentrega = Entry(frame, textvariable=dataentrega)
 txtDataentrega.grid(column=3, row=1)
 
-txtMensagens=Label(frame, text="MENSAGENS", fg="green").grid(column=0, row=2, columnspan=4, pady=15,)
+lblMensagem=Label(frame, text="MENSAGENS", fg="green")
+lblMensagem.grid(column=0, row=2, columnspan=4, pady=15,)
 
 tvProteses=ttk.Treeview(frame)
 tvProteses.grid(column=0, row=3, columnspan=4, padx=40)
@@ -61,6 +63,7 @@ def esvaziar_tabela():
     linhas= tvProteses.get_children()
     for linha in linhas:
         tvProteses.delete(linha)
+
 def preencher_tabela():
     esvaziar_tabela()
     sql="select * from proteses"
@@ -69,10 +72,26 @@ def preencher_tabela():
     for linha in linhas:
         id= linha[0]
         tvProteses.insert("", END, id, text= id, values= linha)
+
 def deletar():
-    pass
+    id= tvProteses.selection()[0]
+    if int(id)>0:
+        sql="delete from proteses where id="+id
+        db.cursor.execute(sql)
+        db.connection.commit()
+        tvProteses.delete(id)
+        lblMensagem.config(text="A prótese foi deletada com sucesso", fg="green")
+    else:
+        lblMensagem.config(text="Selecione uma prótese para eliminar")
+
 def criar():
-    pass
+    val=(numeroProtese.get(), supinf.get(), cliente.get(), dataentrega.get())
+    sql="insert into proteses (numeroid, supinf, cliente, dataentrega) values(%s, %s, %s, %s)"
+    db.cursor.execute(sql, val)
+    db.connection.commit()
+    lblMensagem.config(text="A prótese foi criada com sucesso", fg="green")
+    preencher_tabela()
+
 def atualizar():
     pass
 
