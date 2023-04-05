@@ -15,8 +15,8 @@ GUI Created for a college project, with the aim of helping a self-employed profe
 
 To install Auto-GPT, follow these steps:
 
-    Make sure you have all the requirements above, if not, install/get them.
+    0.Make sure you have all the requirements above, if not, install/get them.
 
 The following commands should be executed in a CMD, Bash or Powershell window. To do this, go to a folder on your computer, click in the folder path at the top and type CMD, then press enter.
 
-    Clone the repository: For this step you need Git installed, but you can just download the zip file instead by clicking the button at the top of this page ☝️
+    1.Clone the repository: For this step you need Git installed, but you can just download the zip file instead by clicking the button at the top of this page ☝️
