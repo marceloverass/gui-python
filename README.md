@@ -6,8 +6,8 @@ GUI Created for a college project, with the aim of helping a self-employed profe
 
 ## Requirements
  ..*[Python 3.7 or later](https://www.python.org/downloads/)
- ..*[XAMPP](https://www.apachefriends.org/pt_br/download.html)
- ..*[mysqlconnector-python](https://dev.mysql.com/downloads/connector/python/)
+ [XAMPP](https://www.apachefriends.org/pt_br/download.html)
+ [mysqlconnector-python](https://dev.mysql.com/downloads/connector/python/)
  
 
 ## How to install the GUI?
