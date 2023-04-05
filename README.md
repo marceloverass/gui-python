@@ -20,5 +20,6 @@ To install the GUI, follow these steps:
 The following commands should be executed in a CMD, Bash or Powershell window. To do this, go to a folder on your computer, click in the folder path at the top and type CMD, then press enter.
 
    1. Clone the repository: For this step you need Git installed, but you can just download the zip file instead by clicking the button at the top of this page ☝️
-   
+   ```
    git clone https://github.com/marceloverass/gui-python.git
+   ```
