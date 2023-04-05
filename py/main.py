@@ -4,10 +4,9 @@ from conexao import *
 
 window=Tk()
 window.title("Próteses")
-window.geometry("700x700")
-
-style = ttk.Style(window)
-style.theme_use()
+window.iconbitmap(r'favicon.ico')
+window.geometry("700x500")
+window.configure(bg="#141414")
 
 db=DataBase()
 modificar = False
@@ -16,8 +15,12 @@ supinf=StringVar()
 cliente=StringVar()
 dataentrega=StringVar()
 
-frame = LabelFrame(window, text="Gestão de Protéses")
-frame.place(x=50, y=50, width=600, height=600)
+my_label = ttk.Label(window, text="Próteses", font=("Helvetica", 18),)
+my_label.pack(pady=20, padx=90)
+
+frame = LabelFrame(window, text="")
+frame.place(x=50, y=50)
+frame.pack(padx= 30)
 
 lblNumeroProtese = Label(frame, text="Numº Protése").grid(column=0, row=0, padx=5, pady=5)
 txtNumeroProtese = Entry(frame, textvariable=numeroProtese)
@@ -56,22 +59,12 @@ tvProteses.heading("#3", text="Superior/Inferior", anchor=CENTER)
 tvProteses.heading("#4", text="Cliente/Dentista", anchor=CENTER)
 tvProteses.heading("#5", text="Data de Entrega", anchor=CENTER)
 
-btnDeletar=Button(frame, text="Deletar", command=lambda:deletar())
+btnDeletar=Button(frame, text="Deletar", command=lambda:deletar(), fg="#FFF", bg="#141414")
 btnDeletar.grid(column=0, row=4, columnspan=4, pady=20)
-btnCriar=Button(frame, text="Criar", command=lambda:criar())
+btnCriar=Button(frame, text="Criar", command=lambda:criar(), fg="#FFF", bg="#141414",)
 btnCriar.grid(column=1, row=4)
-btnModificar=Button(frame, text="Selecionar", command=lambda:atualizar())
+btnModificar=Button(frame, text="Selecionar", command=lambda:atualizar(), fg="#FFF", bg="#141414")
 btnModificar.grid(column=2, row=4)
-
-def proteseClick(event):
-    id= tvProteses.selection()[0]
-    if int(id)>0:
-        numeroProtese.set(tvProteses.item(id, "values")[1])
-        supinf.set(tvProteses.item(id, "values")[2])
-        cliente.set(tvProteses.item(id, "values")[3])
-        dataentrega.set(tvProteses.item(id, "values")[4])
-
-tvProteses.bind("<<TreeviewSelect>>", proteseClick)
 
 def modificarFalse():
     global modificar
@@ -113,16 +106,17 @@ def preencher_tabela():
         tvProteses.insert("", END, id, text= id, values= linha)
 
 def deletar():
-    id= tvProteses.selection()[0]
-    if int(id)>0:
-        sql="delete from proteses where id="+id
-        db.cursor.execute(sql)
-        db.connection.commit()
-        tvProteses.delete(id)
-        lblMensagem.config(text="A prótese foi deletada com sucesso", fg="green")
-        limpar()
+    if validar():
+        id= tvProteses.selection()[0]
+        if int(id)>0:
+            sql="delete from proteses where id="+id
+            db.cursor.execute(sql)
+            db.connection.commit()
+            tvProteses.delete(id)
+            lblMensagem.config(text="A prótese foi deletada com sucesso", fg="green")
+            limpar()
     else:
-        lblMensagem.config(text="Selecione uma prótese para eliminar", fg="red")
+        lblMensagem.config(text="Selecione uma prótese para deletar", fg="red")
 
 def criar():
     if modificar==False:
@@ -154,6 +148,17 @@ def atualizar():
             lblMensagem.config(text="Preencha os campos corretamente", fg="red")
     else: 
         modificarTrue() 
+
+
+def proteseClick(event):
+    id= tvProteses.selection()[0]
+    if int(id)>0:
+        numeroProtese.set(tvProteses.item(id, "values")[1])
+        supinf.set(tvProteses.item(id, "values")[2])
+        cliente.set(tvProteses.item(id, "values")[3])
+        dataentrega.set(tvProteses.item(id, "values")[4])
+
+tvProteses.bind("<<TreeviewSelect>>", proteseClick)
 
 preencher_tabela()
 window.mainloop()
