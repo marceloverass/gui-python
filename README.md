@@ -1,6 +1,6 @@
 # GUI with Python, MySQL and Tkinter
 
-#EN - :uk:
+#H1 EN - :uk:
 
 GUI Created for a college project, with the aim of helping a self-employed professional. I created a system to manage dentures, my father is a prosthetist and I hope this simple system can help him in the future.
 
