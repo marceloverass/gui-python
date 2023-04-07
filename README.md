@@ -23,3 +23,9 @@ The following commands should be executed in a CMD, Bash or Powershell window. T
    ```
    git clone https://github.com/marceloverass/gui-python.git
    ```
+   
+   2. Navigate to the project directory: (Type this into your CMD window, you're aiming to navigate the CMD window to the repository you just downloaded)
+   
+   ```
+   $ cd py
+   ```
