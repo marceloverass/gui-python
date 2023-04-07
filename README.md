@@ -29,3 +29,5 @@ The following commands should be executed in a CMD, Bash or Powershell window. T
    ```
    $ cd py
    ```
+   
+   3. The path in cmd should be like this "D:\yourpath\gui-python\py>" and you and you can't forget to run mysql in xampp.
