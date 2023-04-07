@@ -42,3 +42,26 @@ The following commands should be executed in a CMD, Bash or Powershell window. T
    ```
    python main.py
    ```
+   
+   ## PT-BR - :brazil:
+   
+GUI (Interface Gráfica do Usuário) criada para um projeto de faculdade, com o objetivo de auxiliar um profissional autônomo. Criei um sistema para gerenciar dentaduras, meu pai é protético e espero que este sistema simples possa ajudá-lo no futuro.
+
+## Requisitos
+   
+   * [Python 3.7 ou adiante](https://www.python.org/downloads/)
+   
+   * [XAMPP](https://www.apachefriends.org/pt_br/download.html)
+   
+   * [mysqlconnector-python](https://dev.mysql.com/downloads/connector/python/)
+   
+## Instalação
+
+Para instalar a GUI, siga estas etapas:
+
+   0. Certifique-se de ter todos os requisitos acima, caso contrário, instale/obtenha-os.
+   
+Os seguintes comandos devem ser executados em uma janela CMD, Bash ou Powershell. Para fazer isso, vá para uma pasta em seu computador, clique no caminho da pasta na parte superior e digite CMD e pressione enter.
+
+   1. Clone o repositório: Para esta etapa você precisa do Git instalado, mas você pode apenas baixar o arquivo zip clicando no botão "Code" no topo desta página ☝️
+   
