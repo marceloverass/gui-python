@@ -2,7 +2,7 @@
 
 ## EN - :uk:
 
-GUI Created for a college project, with the aim of helping a self-employed professional. I created a system to manage dentures, my father is a prosthetist and I hope this simple system can help him in the future.
+GUI (Graphical User Interface) created for a college project, with the aim of helping a self-employed professional. I created a system to manage dentures, my father is a prosthetist and I hope this simple system can help him in the future.
 
 ## Requirements
  * [Python 3.7 or later](https://www.python.org/downloads/)
@@ -24,18 +24,20 @@ The following commands should be executed in a CMD, Bash or Powershell window. T
    git clone https://github.com/marceloverass/gui-python.git
    ```
    
-   2. Navigate to the project directory: (Type this into your CMD window, you're aiming to navigate the CMD window to the repository you just downloaded)
+   ## Usage
+   
+   1. Navigate to the project directory: (Type this into your CMD window, you're aiming to navigate the CMD window to the repository you just downloaded)
    
    ```
    $ cd py
    ```
    
-   3. You and you can't forget to run mysql in xampp and the path in cmd should be like this:
+   2. You can't forget to run MySQL in XAMPP and the path in cmd should be like this:
    
    ```
    D:\yourpath\gui-python\py>
    ```
-   4. To run the project type:
+   3. To run the project type:
    
    ```
    python main.py
