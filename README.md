@@ -30,4 +30,13 @@ The following commands should be executed in a CMD, Bash or Powershell window. T
    $ cd py
    ```
    
-   3. The path in cmd should be like this "D:\yourpath\gui-python\py>" and you and you can't forget to run mysql in xampp.
+   3. You and you can't forget to run mysql in xampp and the path in cmd should be like this:
+   
+   ```
+   D:\yourpath\gui-python\py>
+   ```
+   4. To run the project type:
+   
+   ```
+   python main.py
+   ```
