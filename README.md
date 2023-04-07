@@ -19,25 +19,25 @@ To install the GUI, follow these steps:
 
 The following commands should be executed in a CMD, Bash or Powershell window. To do this, go to a folder on your computer, click in the folder path at the top and type CMD, then press enter.
 
-   1. Clone the repository: For this step you need Git installed, but you can just download the zip file instead by clicking the button at the top of this page ☝️
+   1. Clone the repository: For this step you need Git installed, but you can just download the zip file instead by clicking the button "Code" at the top of this page ☝️
    ```
    git clone https://github.com/marceloverass/gui-python.git
    ```
    
    ## Usage
    
-   1. Navigate to the project directory: (Type this into your CMD window, you're aiming to navigate the CMD window to the repository you just downloaded)
+   1. Navigate to the project directory: (Type this into your CMD window, you're should open the CMD window for the repository you just downloaded)
    
    ```
    $ cd py
    ```
    
-   2. You can't forget to run MySQL in XAMPP and the path in cmd should be like this:
+   2. You can't forget to run MySQL in XAMPP and the path in cmd should be like this (example):
    
    ```
    D:\yourpath\gui-python\py>
    ```
-   3. To run the project type:
+   3. To run the project type in CMD:
    
    ```
    python main.py
@@ -64,4 +64,24 @@ Para instalar a GUI, siga estas etapas:
 Os seguintes comandos devem ser executados em uma janela CMD, Bash ou Powershell. Para fazer isso, vá para uma pasta em seu computador, clique no caminho da pasta na parte superior e digite CMD e pressione enter.
 
    1. Clone o repositório: Para esta etapa você precisa do Git instalado, mas você pode apenas baixar o arquivo zip clicando no botão "Code" no topo desta página ☝️
+   ```
+   git clone https://github.com/marceloverass/gui-python.git
+   ```
+  
+## Uso
+
+   1. Navegue até o diretório do projeto: (digite isso na janela do CMD, você deve abrir o CMD para o repositório que acabou de baixar)
+   ```
+   $ cd py
+   ```
+   
+   2. Você não pode esquecer de executar o MySQL no XAMPP e o caminho em cmd deve ser assim (exemplo):
+   ```
+   D:\suapasta\gui-python\py>
+   ```
+   
+   3. Para rodar o projeto, digite no CMD:
+   ```
+   python main.py
+   ```
    
